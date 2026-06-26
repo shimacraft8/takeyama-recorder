@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: #3E2723;
+  --primary-foreground: #F5F1E8;
+  --sidebar-primary: #3E2723;
+  --sidebar-primary-foreground: #F5F1E8;
+  --chart-1: #8D6E63;
+  --chart-2: #6D4C41;
+  --chart-3: #5D4037;
+  --chart-4: #4E342E;
+  --chart-5: #3E2723;
+  --radius: 0.65rem;
+  --background: #F5F1E8;
+  --foreground: #2C2C2C;
+  --card: #FFFFFF;
+  --card-foreground: #2C2C2C;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C2C2C;
+  --secondary: #2D5016;
+  --secondary-foreground: #F5F1E8;
+  --muted: #E0D7CE;
+  --muted-foreground: #6C6C6C;
+  --accent: #2D5016;
+  --accent-foreground: #F5F1E8;
+  --destructive: #D32F2F;
+  --destructive-foreground: #FFFFFF;
+  --border: #D4C4B0;
+  --input: #FFFFFF;
+  --ring: #3E2723;
+  --sidebar: #F5F1E8;
+  --sidebar-foreground: #2C2C2C;
+  --sidebar-accent: #2D5016;
+  --sidebar-accent-foreground: #F5F1E8;
+  --sidebar-border: #D4C4B0;
+  --sidebar-ring: #3E2723;
+}
+
+.dark {
+  --primary: #A1887F;
+  --primary-foreground: #1C1410;
+  --sidebar-primary: #8D6E63;
+  --sidebar-primary-foreground: #F5F1E8;
+  --background: #1C1410;
+  --foreground: #F5F1E8;
+  --card: #2C2420;
+  --card-foreground: #F5F1E8;
+  --popover: #2C2420;
+  --popover-foreground: #F5F1E8;
+  --secondary: #66BB6A;
+  --secondary-foreground: #1C1410;
+  --muted: #4E342E;
+  --muted-foreground: #B0A8A0;
+  --accent: #66BB6A;
+  --accent-foreground: #1C1410;
+  --destructive: #F44336;
+  --destructive-foreground: #1C1410;
+  --border: #3E342E;
+  --input: #2C2420;
+  --ring: #A1887F;
+  --chart-1: #A1887F;
+  --chart-2: #8D6E63;
+  --chart-3: #6D4C41;
+  --chart-4: #5D4037;
+  --chart-5: #4E342E;
+  --sidebar: #2C2420;
+  --sidebar-foreground: #F5F1E8;
+  --sidebar-accent: #66BB6A;
+  --sidebar-accent-foreground: #1C1410;
+  --sidebar-border: #3E342E;
+  --sidebar-ring: #A1887F;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* 竹山リコーダー カスタムスタイル */
+  .takeyama-heading {
+    @apply font-serif text-3xl md:text-4xl font-bold text-primary;
+    letter-spacing: -0.02em;
+  }
+
+  .takeyama-subheading {
+    @apply font-serif text-xl md:text-2xl font-semibold text-primary;
+  }
+
+  .takeyama-body {
+    @apply font-sans text-base leading-relaxed text-foreground;
+  }
+
+  .takeyama-accent-line {
+    @apply h-1 w-16 bg-accent rounded-full;
+  }
+
+  .takeyama-card {
+    @apply bg-card text-card-foreground rounded-lg p-6 shadow-sm border border-border;
+  }
+
+  .takeyama-button {
+    @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-97;
+  }
+
+  .takeyama-button-secondary {
+    @apply px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-97;
+  }
+}
+
+/* フォント設定 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap');
+
+html {
+  font-family: 'Noto Sans JP', 'Segoe UI', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Noto Serif JP', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Noto Sans JP', 'Segoe UI', sans-serif;
+}

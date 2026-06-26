@@ -1,5 +1,6 @@
 {
-  "buildCommand": "mkdir -p dist/404site && echo '<!DOCTYPE html><html lang=\"ja\"><head><meta charset=\"UTF-8\"><title>404</title></head><body></body></html>' > dist/404site/index.html",
+  "installCommand": "echo skip",
+  "buildCommand": "mkdir -p dist/404site && printf '<!DOCTYPE html><html lang=\"ja\"><head><meta charset=\"UTF-8\"><title>404</title></head><body></body></html>' > dist/404site/index.html",
   "outputDirectory": "dist/404site",
   "routes": [
     { "src": "/(.*)", "status": 404, "dest": "/index.html" }
